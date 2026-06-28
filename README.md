@@ -1,14 +1,14 @@
-#Netflix Data Analysis Using SQL
+# Netflix Data Analysis Using SQL
 ![Netflix logo](https://github.com/jaykavitake/Netflix_sql_project/blob/main/Netflix_logo.png)
 
 
-##Project Overview
+## Project Overview
 
 This project analyzes Netflix's content library using SQL. The objective is to answer real-world business questions related to content distribution, ratings, genres, countries, actors, directors, and content trends.
 
 The dataset contains information about Netflix Movies and TV Shows, including title, director, cast, country, release year, rating, duration, genre, date added  and more.
 
-##Dataset Information
+## Dataset Information
 
 The dataset includes the following attributes:
 
@@ -25,7 +25,7 @@ Duration
 Genre (Listed In)
 Description
 
-##Dataset
+## Dataset
 The data for this project is sourced from the Kaggle dataset:
 
 Dataset Link:[Dataset](https://github.com/jaykavitake/Netflix_sql_project/blob/main/netflix_titles.csv)
