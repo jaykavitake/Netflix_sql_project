@@ -19,7 +19,9 @@ return top 5 year with highest avg content release!
 Categorize the content based on the presence of the keywords 'kill' and 'violence' in 
 the description field. Label content containing these keywords as 'Bad' and all other 
 content as 'Good'. Count how many items fall into each category.
-
+16.  For India, find the number of Netflix titles added each year and return the top 5 years with the highest content releases.
+17. How has Netflix's content library grown over the years?
+  
 
 
 
