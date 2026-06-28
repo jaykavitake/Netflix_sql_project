@@ -1,12 +1,12 @@
 -- Netflix Data Analysis using SQL
--- Solutions of 15 business problems
+-- Solutions of 16 business problems
 
---12. Find all content without a director
+--1. Find all content without a director
        SELECT * 
  FROM netflix
  WHERE 
       director IS NULL;
--- 3. List all movies released in a specific year (e.g., 2020)
+-- 2. List all movies released in a specific year (e.g., 2020)
     SELECT
 	 		type,
 			 title,
@@ -17,7 +17,7 @@
 			AND
 	 		release_year = 2020;
   
--- 2. Find the most common rating for movies and TV shows
+-- 3. Find the most common rating for movies and TV shows
     SELECT 
 			type,
 			 rating
@@ -33,13 +33,13 @@
 	 ) t
 	  WHERE ranking = 1;
 
--- 1. Count the number of Movies vs TV Shows
+-- 4. Count the number of Movies vs TV Shows
       SELECT 
   		type, COUNT(*)  AS total_count
   FROM netflix
   GROUP BY type;
 
--- 4. Find the top 5 countries with the most content on Netflix
+-- 5. Find the top 5 countries with the most content on Netflix
     SELECT
 	 		UNNEST(STRING_TO_ARRAY (country,',')) AS  new_country,    --string to array convert string in array used when single column has multiple values with separater
 			COUNT(show_id) as total_content                             --unnest is used covert array elements into separate row.
@@ -59,7 +59,7 @@
 	WHERE
 	   TO_DATE(date_added,'Month DD,YYYY') >=CURRENT_DATE - INTERVAL '5 YEARS ' ;
 
--- 5. Identify the longest movie
+-- 7. Identify the longest movie
       SELECT
     type,
     SPLIT_PART(duration, ' ', 1)::INT AS duration1  
@@ -78,12 +78,12 @@ LIMIT 1;
 	   									                          	--split_part which gives first part of season then 
 											                           --convert it to the number using INT and apply condition on that number >5
 											   
--- 7. Find all the movies/TV shows by director 'Rajiv Chilaka'!
+-- 9. Find all the movies/TV shows by director 'Rajiv Chilaka'!
      select * from netflix
 	 where  director ILIKE '%Rajiv Chilaka%';
 
 
--- 9. Count the number of content items in each genre
+-- 10. Count the number of content items in each genre
     	 SELECT  
 	 		UNNEST(STRING_TO_ARRAY(listed_in,',')) AS genre,
 			 count(show_id) AS total_content
@@ -92,7 +92,7 @@ LIMIT 1;
 	   ORDER BY total_content DESC;
 
 
--- 10.Find each year and the average numbers of content release in India on netflix. 
+-- 11.Find each year and the average numbers of content release in India on netflix. 
 -- return top 5 year with highest avg content release!
     SELECT
     EXTRACT(YEAR FROM TO_DATE(date_added, 'Month DD, YYYY')) AS year,
@@ -108,7 +108,7 @@ ORDER BY content_released DESC
 LIMIT 5;
 
 
--- 11. List all movies that are documentaries
+-- 12. List all movies that are documentaries
   
   SELECT *
   FROM NETFLIX
@@ -118,8 +118,8 @@ LIMIT 5;
     SELECT * FROM  netflix
   WHERE casts ILIKE '%Salman Khan%'    --ilike check both A And a
       AND
-	   release_year > EXTRACT(YEAR FROM CURRENT_DATE) -10
-\
+	   release_year > EXTRACT(YEAR FROM CURRENT_DATE) -10    --data may chages due to current_date is used 
+
 -- 14. Find the top 10 actors who have appeared in the highest number of movies produced in India.
        
     SELECT     
